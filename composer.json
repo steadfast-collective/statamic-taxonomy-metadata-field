@@ -1,0 +1,37 @@
+{
+    "name": "steadfast-collective/statamic-taxonomy-metadata-field",
+    "autoload": {
+        "psr-4": {
+            "SteadfastCollective\\StatamicTaxonomyMetadataField\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SteadfastCollective\\StatamicTaxonomyMetadataField\\Tests\\": "tests"
+        }
+    },
+    "require": {
+        "statamic/cms": "^5.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Taxonomy Metadata Field",
+            "description": "Statamic Taxonomy Metadata Field addon"
+        },
+        "laravel": {
+            "providers": [
+                "SteadfastCollective\\StatamicTaxonomyMetadataField\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
