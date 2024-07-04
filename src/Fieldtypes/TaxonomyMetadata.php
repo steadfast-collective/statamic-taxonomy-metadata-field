@@ -75,4 +75,14 @@ class TaxonomyMetadata extends Fieldtype
             ],
         ];
     }
+
+    public function augment($value)
+    {
+        return collect($value)->map(function($item) {
+            return [
+                'term' => Term::find($item['term']),
+                'data' => $item['data']
+            ];
+        });
+    }
 }
