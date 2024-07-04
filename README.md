@@ -12,12 +12,27 @@ This addon does:
 
 ## How to Install
 
-You can search for this addon in the `Tools > Addons` section of the Statamic control panel and click **install**, or run the following command from your project root:
-
-``` bash
+Add the following to your `composer.json`:
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/steadfast-collective/statamic-taxonomy-metadata-field.git" 
+    }
+]
+```
+Then run 
+```bash
 composer require steadfast-collective/statamic-taxonomy-metadata-field
 ```
-
 ## How to Use
 
-Here's where you can explain how to use this wonderful addon.
+Add the "Taxonomy Metadata" field to a blueprint, and specify the taxonomy it relates to.
+
+## Usage within a template
+```
+{{ field_name }}
+    {{ term:title }} # You can access all term properties, using 'term:{property}' 
+    {{ data }}
+{{ /field_name }}
+```
