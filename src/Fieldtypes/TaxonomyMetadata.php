@@ -80,16 +80,20 @@ class TaxonomyMetadata extends Fieldtype
 
     public function augment($value)
     {
-        return collect($value)->map(function ($item) {
-            return [
-                'term' => Term::find(
-                    __(':taxonomy:::term', [
-                        'taxonomy' => $this->config('taxonomy'),
-                        'term' => $item['term']
-                    ])
-                ),
-                'data' => $item['data']
-            ];
-        });
+        return collect($value)
+            ->map(function ($item) {
+                return [
+                    'term' => Term::find(
+                        __(':taxonomy:::term', [
+                            'taxonomy' => $this->config('taxonomy'),
+                            'term' => $item['term']
+                        ])
+                    ),
+                    'data' => $item['data']
+                ];
+            })
+            ->filter(function($item) {
+                return $item['term'] != null;
+            });
     }
 }
