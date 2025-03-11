@@ -50,6 +50,7 @@ class TaxonomyMetadata extends Fieldtype
     {
         $terms = Term::query()
             ->where('taxonomy', $this->config('taxonomy'))
+            ->orderBy('title', 'asc')
             ->get();
 
         return [
@@ -94,6 +95,9 @@ class TaxonomyMetadata extends Fieldtype
             })
             ->filter(function($item) {
                 return $item['term'] != null;
+            })
+            ->sortBy(function ($term) {
+                return $term["term"]->title;
             });
     }
 }
